@@ -1,0 +1,36 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  background-color: rgb(24, 15, 61);
+  height: 100vh;
+  gap: 20px;
+  color: white;
+}
+
+header {
+  background-image: url(/src/images/bgImage.jpg);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100vw;
+  height: 45vh;
+  position: absolute;
+  color: rgb(230, 15, 15);
+  opacity: 90%;
+  align-items: center;
+  font-size: 100px;
+  text-shadow: -5px -1px 0px #000000, -5px 4px 0px #000000, 1px -1px 0px #000000,
+    1px 0px 0px #000000;
+}

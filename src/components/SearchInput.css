@@ -1,0 +1,16 @@
+.searchInput {
+  position: relative;
+  min-height: 5vh;
+  min-width: 30vh;
+  text-align: center;
+  background-color: white;
+  color: black;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 15px;
+}
+
+.searchInput:hover {
+  background-color: rgb(168, 181, 191);
+  opacity: 1;
+  transition: 400ms;
+}

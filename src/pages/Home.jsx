@@ -1,6 +1,7 @@
 import "./Home.css";
 import SearchInput from "../components/SearchInput";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Home = () => {
   const [animes, setAnimes] = useState({});
@@ -12,11 +13,14 @@ const Home = () => {
 
   useEffect(() => {
     if (searchText) {
-      fetch(`https://api.jikan.moe/v4/anime?q=${searchText}`)
-        .then((response) => response.json())
+      axios
+        .get(`https://api.jikan.moe/v4/anime?q=${searchText}`)
         .then((response) => {
-          setAnimes(response);
-          console.log(response);
+          setAnimes(response.data);
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error(error);
         });
     }
   }, [searchText]);
@@ -32,7 +36,7 @@ const Home = () => {
           <ul className="animeList">
             {animes.data.map((anime) => (
               <li key={anime.id}>
-                <img src={anime.images.jpg.image_url} />
+                <img src={anime.images.jpg.image_url} alt="Imagem Anime" />
                 {anime.title}
               </li>
             ))}

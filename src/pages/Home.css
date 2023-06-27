@@ -36,13 +36,13 @@ header {
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: auto;
   background-color: rgb(24, 15, 61);
   margin-top: 45vh;
   padding: 20px;
   min-height: calc(100vh - 45vh);
   z-index: 1;
-  gap: 20px;
+  gap: 15px;
   color: white;
 }
 
@@ -50,5 +50,11 @@ header {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   list-style: none;
-  grid-gap: 1.5rem;
+  grid-gap: 4rem;
+  background: linear-gradient(
+    rgb(12, 1, 1) 28%,
+    rgb(39, 0, 0) 100%,
+    rgb(59, 1, 1) 100%
+  );
+  padding: 6vh;
 }

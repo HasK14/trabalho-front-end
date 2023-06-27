@@ -14,3 +14,24 @@
   opacity: 1;
   transition: 400ms;
 }
+
+.button {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+  align-items: center;
+  color: black;
+  height: 2vh;
+  width: 10vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button:hover {
+  background-color: rgb(200, 13, 13);
+  opacity: 1;
+  width: 12vw;
+  height: 3vh;
+  transition: 0.5s;
+}

@@ -3,22 +3,43 @@ import SearchInput from "../components/SearchInput";
 import { useEffect, useState } from "react";
 
 const Home = () => {
-  const [text, setText] = useState("");
+  const [animes, setAnimes] = useState({});
+  const [searchText, setSearchText] = useState("");
+
+  const handleSearch = (search) => {
+    setSearchText(search);
+  };
 
   useEffect(() => {
-    if (text) {
-      fetch(`https://api.jikan.moe/v4/anime?q=${text}`);
+    if (searchText) {
+      fetch(`https://api.jikan.moe/v4/anime?q=${searchText}`)
+        .then((response) => response.json())
+        .then((response) => {
+          setAnimes(response);
+          console.log(response);
+        });
     }
-  }, [text]);
+  }, [searchText]);
 
   return (
-    <div>
+    <body>
       <header>
         <h1>Animes</h1>
-        <SearchInput value={text} onChange={(search) => setText(search)} />
+        <SearchInput onSearch={handleSearch} />
       </header>
-      <div className="container"></div>
-    </div>
+      <div className="container">
+        {animes.data && (
+          <ul className="animeList">
+            {animes.data.map((anime) => (
+              <li key={anime.id}>
+                <img src={anime.images.jpg.image_url} />
+                {anime.title}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </body>
   );
 };
 

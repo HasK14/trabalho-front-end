@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SearchInput.css";
+import "../pages/Home.css";
 
-const SearchInput = ({ value, onChange }) => {
-  const handleChange = (event) => {
-    onChange(event.target.value);
+const SearchInput = ({ onSearch }) => {
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleInputChange = (event) => {
+    setSearchValue(event.target.value);
+  };
+
+  const handleSearch = () => {
+    onSearch(searchValue);
   };
 
   return (
-    <input
-      placeholder="Busque um Anime"
-      className="searchInput"
-      type="search"
-      value={value}
-      onChange={handleChange}
-    />
+    <div>
+      <input
+        placeholder="Busque um Anime"
+        className="searchInput"
+        type="search"
+        value={searchValue}
+        onChange={handleInputChange}
+      />
+      <button className="button" onClick={handleSearch}>
+        Buscar
+      </button>
+    </div>
   );
 };
 

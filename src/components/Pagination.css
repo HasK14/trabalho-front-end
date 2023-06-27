@@ -8,12 +8,23 @@
 .pagination-container button {
   margin: 0px 5px;
   padding: 3px;
+  border: none;
+  background-color: black;
+  color: white;
 }
 
-.active {
+.pagination-container button.active {
   font-weight: bold;
   background-color: red;
   width: 3vw;
   height: 3vh;
   transition: 1s;
+  color: white;
+  font-size: large;
+  border: 2px solid white;
+}
+
+.pagination-container button:active {
+  color: white;
+  background-color: red;
 }

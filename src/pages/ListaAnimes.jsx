@@ -77,7 +77,7 @@ const ListaAnimes = () => {
         {animes.map((anime) => (
           <li key={anime.id}>
             <img src={anime.images.jpg.image_url} alt="Imagem Anime" />
-            {anime.title}
+            <div className="title">{anime.title}</div>
           </li>
         ))}
       </ul>

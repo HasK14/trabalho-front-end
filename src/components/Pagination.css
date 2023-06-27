@@ -1,0 +1,19 @@
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  background-color: black;
+}
+
+.pagination-container button {
+  margin: 0px 5px;
+  padding: 3px;
+}
+
+.active {
+  font-weight: bold;
+  background-color: red;
+  width: 3vw;
+  height: 3vh;
+  transition: 1s;
+}

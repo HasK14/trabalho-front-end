@@ -1,11 +1,23 @@
 import "./Home.css";
 import SearchInput from "../components/SearchInput";
 import { useEffect, useState } from "react";
+import { FaHome, FaSearch } from "react-icons/fa";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [animes, setAnimes] = useState({});
   const [searchText, setSearchText] = useState("");
+
+  const navigate = useNavigate();
+
+  const navigateToSearch = () => {
+    navigate("/buscar");
+  };
+
+  const navigateToList = () => {
+    navigate("/");
+  };
 
   const handleSearch = (search) => {
     setSearchText(search);
@@ -27,6 +39,18 @@ const Home = () => {
 
   return (
     <div>
+      <div className="rodape">
+        <FaSearch
+          onClick={navigateToSearch}
+          className="icon"
+          title="Buscar Anime"
+        ></FaSearch>
+        <FaHome
+          onClick={navigateToList}
+          className="icon"
+          title="Ir para a Lista de Animes"
+        ></FaHome>
+      </div>
       <header className="headerHome">
         <h1>Animes</h1>
         <SearchInput onSearch={handleSearch} />

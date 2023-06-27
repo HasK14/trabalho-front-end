@@ -47,16 +47,16 @@ const Home = () => {
   return (
     <div>
       <div className="rodape">
-        <FaSearch
-          onClick={navigateToSearch}
-          className="icon"
-          title="Buscar Anime"
-        ></FaSearch>
         <FaHome
           onClick={navigateToList}
           className="icon"
           title="Ir para a Lista de Animes"
         ></FaHome>
+        <FaSearch
+          onClick={navigateToSearch}
+          className="icon"
+          title="Buscar Anime"
+        ></FaSearch>
       </div>
       <header className="headerHome">
         <h1>Animes</h1>
@@ -67,7 +67,13 @@ const Home = () => {
         <ul className="animeList">
           {animes.data.map((anime) => (
             <li key={anime.id}>
-              <img src={anime.images.jpg.image_url} alt="Imagem Anime" />
+              <a
+                href={`https://myanimelist.net/anime/${anime.mal_id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={anime.images.jpg.image_url} alt="Imagem Anime" />
+              </a>
               {anime.title}
             </li>
           ))}

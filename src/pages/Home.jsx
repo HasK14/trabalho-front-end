@@ -26,24 +26,22 @@ const Home = () => {
   }, [searchText]);
 
   return (
-    <body>
-      <header>
+    <div>
+      <header className="headerHome">
         <h1>Animes</h1>
         <SearchInput onSearch={handleSearch} />
       </header>
-      <div className="container">
-        {animes.data && (
-          <ul className="animeList">
-            {animes.data.map((anime) => (
-              <li key={anime.id}>
-                <img src={anime.images.jpg.image_url} alt="Imagem Anime" />
-                {anime.title}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </body>
+      {animes.data && (
+        <ul className="animeList">
+          {animes.data.map((anime) => (
+            <li key={anime.id}>
+              <img src={anime.images.jpg.image_url} alt="Imagem Anime" />
+              {anime.title}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };
 

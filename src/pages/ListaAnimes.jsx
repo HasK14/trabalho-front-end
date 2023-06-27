@@ -1,9 +1,17 @@
-import "./Home.css";
+import "./AnimeList.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { FaHome, FaSearch } from "react-icons/fa";
 
 const ListaAnimes = () => {
   const [animes, setAnimes] = useState([]);
+
+  const navigate = useNavigate();
+
+  const navigateToSearch = () => {
+    navigate("/buscar");
+  };
 
   useEffect(() => {
     const fetchAnimes = async () => {
@@ -21,6 +29,16 @@ const ListaAnimes = () => {
 
   return (
     <div>
+      <div className="rodape">
+        <FaSearch
+          onClick={navigateToSearch}
+          className="icon"
+          title="Buscar Anime"
+        ></FaSearch>
+      </div>
+      <header className="header">
+        <h1>Lista de Animes</h1>
+      </header>
       <ul className="animeList">
         {animes.map((anime) => (
           <li key={anime.id}>

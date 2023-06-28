@@ -10,7 +10,7 @@ const Pagination = ({
 }) => {
   const getPaginationRange = () => {
     let startPage = currentPage - 4;
-    let endPage = currentPage + 5;
+    let endPage = currentPage + 4;
 
     if (startPage < 1) {
       startPage = 1;

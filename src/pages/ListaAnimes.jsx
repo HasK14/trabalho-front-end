@@ -24,7 +24,7 @@ const ListaAnimes = () => {
     const fetchAnimes = async () => {
       try {
         const response = await axios.get(
-          `https://api.jikan.moe/v4/anime?&page=${currentPage}`
+          `https://api.jikan.moe/v4/anime?&page=${currentPage}&limit=24`
         );
         const animeList = response.data.data;
 
